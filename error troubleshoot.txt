@@ -1,0 +1,4 @@
+either set setUseOptimized(false); 
+or https://github.com/opencv/opencv_contrib/issues/2422
+changed line 1260 in ocl.cpp of opencv to be:
+const size_t CV_OPENCL_DEVICE_MAX_WORK_GROUP_SIZE = 512;
