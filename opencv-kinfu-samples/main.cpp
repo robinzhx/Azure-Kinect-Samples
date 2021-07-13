@@ -25,7 +25,8 @@ int _stricmp(const char *a, const char *b) {
 #endif
 
 // Enable HAVE_OPENCV macro after you installed opencv and opencv contrib modules (kinfu, viz), please refer to README.md
-// #define HAVE_OPENCV
+// Uncomment
+#define HAVE_OPENCV
 #ifdef HAVE_OPENCV
 #include <opencv2/core.hpp>
 #include <opencv2/calib3d.hpp>
@@ -451,7 +452,8 @@ int main(int argc, char** argv)
     interpolation_t interpolation_type = INTERPOLATION_BILINEAR_DEPTH;
 
 #ifdef HAVE_OPENCV
-    setUseOptimized(true);
+    //if it doesn't work, try set setUseOptimized(false);
+    setUseOptimized(false);
 
     // Retrieve calibration parameters
     k4a_calibration_intrinsic_parameters_t *intrinsics = &calibration.depth_camera_calibration.intrinsics.parameters;
@@ -487,8 +489,8 @@ int main(int argc, char** argv)
     // Create KinectFusion module instance
     Ptr<kinfu::KinFu> kf;
     kf = kinfu::KinFu::create(params);
-    namedWindow("AzureKinect KinectFusion Example");
-    viz::Viz3d visualization("AzureKinect KinectFusion Example");
+    namedWindow("AzureKinect KinectFusion Polaris Test");
+    viz::Viz3d visualization("AzureKinect KinectFusion Polaris Test");
 
     bool stop = false;
     bool renderViz = false;
@@ -564,7 +566,7 @@ int main(int argc, char** argv)
         kf->getCloud(points, normals);
 
         // Show TSDF rendering
-        imshow("AzureKinect KinectFusion Example", tsdfRender);
+        imshow("AzureKinect KinectFusion Polaris Test", tsdfRender);
 
         // Show fused point cloud and normals
         if (!points.empty() && !normals.empty() && renderViz)
