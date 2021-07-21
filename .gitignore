@@ -370,6 +370,8 @@ ExportedObj/
 *.booproj
 *.svd
 
+!kinfu_polaris.sln
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
