@@ -453,7 +453,7 @@ int main(int argc, char** argv)
 
 #ifdef HAVE_OPENCV
     //if it doesn't work, try set setUseOptimized(false);
-    setUseOptimized(false);
+    setUseOptimized(true);
 
     // Retrieve calibration parameters
     k4a_calibration_intrinsic_parameters_t *intrinsics = &calibration.depth_camera_calibration.intrinsics.parameters;
